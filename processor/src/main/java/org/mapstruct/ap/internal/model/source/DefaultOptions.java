@@ -109,6 +109,9 @@ public class DefaultOptions extends DelegatingOptions {
 
     @Override
     public Boolean isDisableSubMappingMethodsGeneration() {
+        if ( options.isDefaultDisableSubMappingMethodsGeneration() ) {
+            return true;
+        }
         return mapper.disableSubMappingMethodsGeneration().getDefaultValue();
     }
 

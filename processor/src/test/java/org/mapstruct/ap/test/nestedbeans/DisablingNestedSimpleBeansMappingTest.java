@@ -10,6 +10,7 @@ import org.mapstruct.ap.testutil.WithClasses;
 import org.mapstruct.ap.testutil.compilation.annotation.CompilationResult;
 import org.mapstruct.ap.testutil.compilation.annotation.Diagnostic;
 import org.mapstruct.ap.testutil.compilation.annotation.ExpectedCompilationOutcome;
+import org.mapstruct.ap.testutil.compilation.annotation.ProcessorOption;
 
 /**
  * @author Filip Hrisafov
@@ -53,5 +54,31 @@ public class DisablingNestedSimpleBeansMappingTest {
         })
     @ProcessorTest
     public void shouldUseDisabledMethodGenerationOnMapperConfig() {
+    }
+
+    @WithClasses({
+        ErroneousDisabledViaCompilerOptionHouseMapper.class
+    })
+    @ProcessorOption(name = "mapstruct.defaultDisableSubMappingMethodsGeneration", value = "true")
+    @ExpectedCompilationOutcome(value = CompilationResult.FAILED,
+        diagnostics = {
+            @Diagnostic(type = ErroneousDisabledViaCompilerOptionHouseMapper.class,
+                kind = javax.tools.Diagnostic.Kind.ERROR,
+                line = 13,
+                message = "Can't map property \"Roof roof\" to \"RoofDto roof\". " +
+                    "Consider to declare/implement a mapping method: \"RoofDto map(Roof value)\"."
+            )
+        })
+    @ProcessorTest
+    public void shouldUseDisabledMethodGenerationViaCompilerOption() {
+    }
+
+    @WithClasses({
+        ExplicitEnabledHouseMapper.class
+    })
+    @ProcessorOption(name = "mapstruct.defaultDisableSubMappingMethodsGeneration", value = "true")
+    @ExpectedCompilationOutcome(value = CompilationResult.SUCCEEDED)
+    @ProcessorTest
+    public void shouldAllowAnnotationToOverrideCompilerOption() {
     }
 }

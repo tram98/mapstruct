@@ -23,6 +23,7 @@ public enum MappingOption {
     NULL_VALUE_ITERABLE_MAPPING_STRATEGY("mapstruct.nullValueIterableMappingStrategy"),
     NULL_VALUE_MAP_MAPPING_STRATEGY("mapstruct.nullValueMapMappingStrategy"),
     DISABLE_LIFECYCLE_OVERLOAD_DEDUPLICATE_SELECTOR("mapstruct.disableLifecycleOverloadDeduplicateSelector"),
+    DEFAULT_DISABLE_SUB_MAPPING_METHODS_GENERATION("mapstruct.defaultDisableSubMappingMethodsGeneration"),
     ;
     // CHECKSTYLE:ON
 

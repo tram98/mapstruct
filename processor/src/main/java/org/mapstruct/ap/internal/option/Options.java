@@ -74,6 +74,10 @@ public class Options {
         return parseBoolean( MappingOption.DISABLE_LIFECYCLE_OVERLOAD_DEDUPLICATE_SELECTOR );
     }
 
+    public boolean isDefaultDisableSubMappingMethodsGeneration() {
+        return parseBoolean( MappingOption.DEFAULT_DISABLE_SUB_MAPPING_METHODS_GENERATION );
+    }
+
     private boolean parseBoolean(MappingOption option) {
         if ( options.isEmpty() ) {
             return false;

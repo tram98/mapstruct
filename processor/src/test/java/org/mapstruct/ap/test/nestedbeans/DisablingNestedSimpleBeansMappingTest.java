@@ -72,4 +72,13 @@ public class DisablingNestedSimpleBeansMappingTest {
     @ProcessorTest
     public void shouldUseDisabledMethodGenerationViaCompilerOption() {
     }
+
+    @WithClasses({
+        ExplicitEnabledHouseMapper.class
+    })
+    @ProcessorOption(name = "mapstruct.defaultDisableSubMappingMethodsGeneration", value = "true")
+    @ExpectedCompilationOutcome(value = CompilationResult.SUCCEEDED)
+    @ProcessorTest
+    public void shouldAllowAnnotationToOverrideCompilerOption() {
+    }
 }

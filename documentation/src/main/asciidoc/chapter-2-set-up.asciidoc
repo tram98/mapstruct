@@ -268,6 +268,15 @@ disableBuilders`
 |If set to `true`, then MapStruct will not use builder patterns when doing the mapping. This is equivalent to doing `@Mapper( builder = @Builder( disableBuilder = true ) )` for all of your mappers.
 |`false`
 
+|`mapstruct.defaultDisableSubMappingMethodsGeneration`
+|If set to `true`, then MapStruct will not automatically generate sub-mapping methods.
+This is useful when you want to have explicit control over all mapping methods.
+This is equivalent to doing `@Mapper( disableSubMappingMethodsGeneration = true )` for all of your mappers.
+
+If a value is given for a specific mapper via `@Mapper#disableSubMappingMethodsGeneration()`, the value from the annotation takes precedence.
+If a value is given for a specific mapper config via `@MapperConfig#disableSubMappingMethodsGeneration()`, it takes precedence over the option.
+|`false`
+
 |`mapstruct.nullValueIterableMappingStrategy`
 |The strategy to be applied when `null` is passed as a source value to an iterable mapping.
 

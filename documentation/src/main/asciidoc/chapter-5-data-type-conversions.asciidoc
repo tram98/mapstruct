@@ -176,7 +176,8 @@ A mapping control (`MappingControl`) can be defined on all levels (`@MapperConfi
 
 [NOTE]
 ====
-In order to stop MapStruct from generating automatic sub-mapping methods as in 5. above, one can use `@Mapper( disableSubMappingMethodsGeneration = true )`.
+In order to stop MapStruct from generating automatic sub-mapping methods as in 5. above, one can use `@Mapper( disableSubMappingMethodsGeneration = true )` or `@MapperConfig( disableSubMappingMethodsGeneration = true )`.
+It is also possible to set this globally for all mappers by using the compiler option `mapstruct.defaultDisableSubMappingMethodsGeneration=true`.
 ====
 
 [TIP]

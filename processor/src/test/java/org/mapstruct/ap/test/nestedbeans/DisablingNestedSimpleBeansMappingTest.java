@@ -64,7 +64,7 @@ public class DisablingNestedSimpleBeansMappingTest {
         diagnostics = {
             @Diagnostic(type = ErroneousDisabledViaCompilerOptionHouseMapper.class,
                 kind = javax.tools.Diagnostic.Kind.ERROR,
-                line = 16,
+                line = 13,
                 message = "Can't map property \"Roof roof\" to \"RoofDto roof\". " +
                     "Consider to declare/implement a mapping method: \"RoofDto map(Roof value)\"."
             )

@@ -7,9 +7,6 @@ package org.mapstruct.ap.test.nestedbeans;
 
 import org.mapstruct.Mapper;
 
-/**
- * @author Filip Hrisafov
- */
 @Mapper
 public interface ErroneousDisabledViaCompilerOptionHouseMapper {
 
